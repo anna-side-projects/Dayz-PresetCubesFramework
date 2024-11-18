@@ -5,7 +5,8 @@ class CfgPatches
 		requiredAddons[] = 
 		{
 			"DZ_Data",
-            "DZ_Gear"
+            "DZ_Gear",
+			"JM_CF_Scripts"
 		};
 	};
 };
@@ -15,13 +16,18 @@ class CfgMods
 	class PresetCubesFramework
 	{
 		type = "mod";
-		dependencies[]={"World"};
+		dependencies[]={"Game", "World", "Mission"};
+		inputs="PresetCubesFramework\Data\modded_inputs.xml";
 		class defs
 		{
             class worldScriptModule
             {
                 files[] = {"PresetCubesFramework/scripts/4_World"};
             };
+			class missionScriptModule
+			{
+				files[] = {"PresetCubesFramework/scripts/5_Mission"};
+			};
 		};
 	};
 };
@@ -29,17 +35,21 @@ class CfgMods
 class CfgVehicles
 {
     class Inventory_Base;
-	class Default_Cube : Inventory_Base
+	class BlobDefault_Cube : Inventory_Base
 	{
-		scope = 2;
+		scope = 1;
 		displayName = "Base Cube";
 		descriptionShort = "Don't really know why you'd spawn this in..."
 		model="\DZ\gear\containers\ChristmasBox1.p3d";
-		// model = "PresetCubesFramework\Data\cubes\base_cube.p3d";
 		itemSize[] = {2,2};
 		itemBehaviour = 2;
 		weight = 5000;
 		heavyItem=1;
 		varQuantityMax=1;
+	};
+	class BlobExample_Cube : BlobDefault_Cube 
+	{
+		displayName = "Example cube";
+		descriptionShort = "Example cube for others."
 	};
 };
