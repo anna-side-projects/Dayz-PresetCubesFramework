@@ -9,7 +9,7 @@ modded class MissionBase
 	{
 		super.OnInit();
 		boltInput = "UAGrabBolt";
-		itemClass="Default_Cube";
+		itemClass="BlobDefault_Cube";
 		modname = "PresetCubesFramework";
 		inputBindings = new CF_InputBindings(this);
 		inputBindings.Bind("checkBoltInput", boltInput, true);

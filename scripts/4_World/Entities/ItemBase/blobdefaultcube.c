@@ -1,5 +1,34 @@
 class BlobDefault_Cube : ItemBase
 {
+    static string modname = "PresetCubesFramework";
+    void BlobDefault_Cube() 
+    {
+        GetRPCManager().AddRPC(modname, "OpenCubeRPC",this, SingleplayerExecutionType.Both);
+    }
+
+    void OpenCubeRPC(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
+	{
+		Param1<string> data;
+		
+		if(!ctx.Read(data)) return;
+		
+		if(type == CallType.Server)
+		{
+			PlayerBase player = PlayerBase.Cast(sender.GetPlayer());
+            SpawnItems(player);
+		}
+		else
+		{
+            PlayerBase player = GetGame().GetPlayer();
+            SpawnItems(player);
+		}
+	}
+
+    void Open()
+    {
+        GetRPCManager().SendRPC(modname, "OpenCubeRPC",new Param1<string>(itemClass));
+    }
+
     override void SetActions()
     {
         super.SetActions();
@@ -13,8 +42,7 @@ class BlobDefault_Cube : ItemBase
 		vector location = player.GetLocalPosition();
 		HumanInventory inventory = player.GetHumanInventory();
 		foreach(string item: items)
-		{
-			//may need rpc
+		{   
 			SpawnInInventoryOrGroundPos(item, inventory, location);
 		}
     }
@@ -24,7 +52,6 @@ class BlobDefault_Cube : ItemBase
 		return items;
                 
     }
-	//Todo make it return nothing for default after testing is done
     array<string> GetItems()
     {
         return null;

@@ -39,21 +39,24 @@ class ActionUnpackCube : ActionContinuousBase
 	}
     override void OnFinishProgressServer( ActionData action_data )
     {
-
-		//todo spawn items from item anyway
-		Print("Here1");
         PlayerBase player = action_data.m_Player;
 		ItemBase item = action_data.m_MainItem;
-		player.GetHumanInventory().CreateInInventory("Stone");
-        Print("HERE!!!");
-		item.DeleteSafe();
+		DoOpen(item);
+		
     }
 	override void OnFinishProgress( ActionData action_data )
 	{	
-		Print("here2");
 		PlayerBase player = action_data.m_Player;
 		ItemBase item = action_data.m_MainItem;
-		player.GetHumanInventory().CreateInInventory("Stone");
-		item.DeleteSafe();
+		DoOpen(item);
+	}
+	void DoOpen(ItemBase item)
+	{
+		if(BlobDefault_Cube.Cast(item))
+		{
+			BlobDefault_Cube cube = BlobDefault_Cube.Cast(item);
+			cube.Open()
+			cube.DeleteSafe();
+		}
 	}
 };
