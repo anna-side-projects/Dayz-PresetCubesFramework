@@ -33,9 +33,9 @@ Last, you must create the script to give your preset the items it should have. C
 ```cpp
 class CfgMods
 {
-	class MyPresetCubeMod
-	{
-		type = "mod";
+  class MyPresetCubeMod
+  {
+    type = "mod";
 		dependencies[]={"World"};
 		class defs
 		{
