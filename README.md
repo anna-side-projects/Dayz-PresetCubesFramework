@@ -30,7 +30,7 @@ class CfgVehicles
 ```
 
 Last, you must create the script to give your preset the items it should have. Create the script folder and "4_World" folder and set up the location in your CfgMods.
-```
+```cpp
 class CfgMods
 {
 	class MyPresetCubeMod
