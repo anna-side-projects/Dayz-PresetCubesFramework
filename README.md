@@ -33,16 +33,16 @@ Last, you must create the script to give your preset the items it should have. C
 ```cpp
 class CfgMods
 {
-  class MyPresetCubeMod
-  {
-    type = "mod";
+	class MyPresetCubeMod
+	{
+		type= "mod";
 		dependencies[]={"World"};
 		class defs
 		{
-      class worldScriptModule
-      {
-        files[] = {"MyPresetCubeMod/scripts/4_World"};
-      };
+			class worldScriptModule
+			{
+				files[] = {"MyPresetCubeMod/scripts/4_World"};
+			};
 		};
 	};
 };
@@ -58,6 +58,6 @@ class MyPresetCube : BlobDefault_Cube
   {
     array<string> items = {"Stone", "Apple", "AnyItemYouWant"};
     return items;
-  }
+	}
 }
 ```
