@@ -16,18 +16,13 @@ class CfgMods
 	class PresetCubesFramework
 	{
 		type = "mod";
-		dependencies[]={"World", "Mission"};
-		inputs="PresetCubesFramework\Data\modded_inputs.xml";
+		dependencies[]={"World"};
 		class defs
 		{
             class worldScriptModule
             {
                 files[] = {"PresetCubesFramework/scripts/4_World"};
             };
-			class missionScriptModule
-			{
-				files[] = {"PresetCubesFramework/scripts/5_Mission"};
-			};
 		};
 	};
 };
