@@ -9,24 +9,25 @@ class BlobDefault_Cube : ItemBase
     void OpenCubeRPC(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
 	{
 		Param1<string> data;
+        PlayerBase player;
 		
 		if(!ctx.Read(data)) return;
 		
 		if(type == CallType.Server)
 		{
-			PlayerBase player = PlayerBase.Cast(sender.GetPlayer());
+			player = PlayerBase.Cast(sender.GetPlayer());
             SpawnItems(player);
 		}
 		else
 		{
-            PlayerBase player = GetGame().GetPlayer();
+            player = GetGame().GetPlayer();
             SpawnItems(player);
 		}
 	}
 
-    void Open()
+    override void Open()
     {
-        GetRPCManager().SendRPC(modname, "OpenCubeRPC",new Param1<string>(itemClass));
+        GetRPCManager().SendRPC(modname, "OpenCubeRPC",new Param1<string>("idk"));
     }
 
     override void SetActions()

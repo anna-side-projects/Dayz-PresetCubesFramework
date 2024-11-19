@@ -16,7 +16,7 @@ class CfgMods
 	class PresetCubesFramework
 	{
 		type = "mod";
-		dependencies[]={"Game", "World", "Mission"};
+		dependencies[]={"World", "Mission"};
 		inputs="PresetCubesFramework\Data\modded_inputs.xml";
 		class defs
 		{
@@ -39,7 +39,7 @@ class CfgVehicles
 	{
 		scope = 1;
 		displayName = "Base Cube";
-		descriptionShort = "Don't really know why you'd spawn this in..."
+		descriptionShort = "Don't really know why you'd spawn this in...";
 		model="\DZ\gear\containers\ChristmasBox1.p3d";
 		itemSize[] = {2,2};
 		itemBehaviour = 2;
@@ -49,7 +49,8 @@ class CfgVehicles
 	};
 	class BlobExample_Cube : BlobDefault_Cube 
 	{
+		scope = 1;
 		displayName = "Example cube";
-		descriptionShort = "Example cube for others."
+		descriptionShort = "Example cube for others.";
 	};
 };
