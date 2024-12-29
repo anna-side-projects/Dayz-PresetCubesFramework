@@ -1,4 +1,4 @@
-class BlobDefault_Cube : ItemBase
+class BlobDefault_Cube : Inventory_Base
 {
     static string modname = "PresetCubesFramework";
     void BlobDefault_Cube() 
@@ -25,7 +25,7 @@ class BlobDefault_Cube : ItemBase
 		}
 	}
 
-    override void Open()
+    void Open()
     {
         GetRPCManager().SendRPC(modname, "OpenCubeRPC",new Param1<string>("idk"));
     }
